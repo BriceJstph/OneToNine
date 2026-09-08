@@ -1,0 +1,52 @@
+
+body{
+    background-color: rgb(192, 145, 250);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.board {
+    --board-height: 75vh;
+    --board-width: 75vw;
+    --board-length: min(var(--board-height), var(--board-width));
+
+    display: grid; /*Affiche de facon "grille" les elem enfants de board*/
+    width: var(--board-length);
+    height: var(--board-length);
+    grid-template-columns: repeat(3, 1fr) ; /*dispatch en 3 col les elems, 1/3 chacun*/
+    grid-template-rows: repeat(3, 1fr) ; /*dispatch en 3 col les elems*/
+    grid-gap: 0.5rem; /*rem etant la taille standart de police du naviateur*/
+
+    margin: 0 auto; /* 1er chiffre c'est haut-bas, 2eme c'est gauche-droite*/
+}
+
+.cell {
+    background-color: white;
+    color: rgb(77, 3, 126);
+
+    font-size: calc(0.2 * var(--board-length));
+    font-family: "Archivo Black", sans-serif;
+
+    display: flex; /*applique le display a tout les elem de la cell*/
+    justify-content: center; /* axe horiz*/
+    align-items: center; /*axe vertical*/
+    
+    cursor: pointer; /*permet d'avoir une ptite main pour savoir qu'on click*/
+}
+
+.announce{
+    text-align: center;
+    font-size: 7.5vw;
+    font-weight: bold;
+    font-family: "Archivo Black", sans-serif;
+    color: rgb(77, 3, 126);
+}
+
+.gameLogs{
+    text-align: center;
+    font-size: 6vw;
+    font-family: "Archivo Black", sans-serif;
+    color: rgb(77, 3, 126);
+}

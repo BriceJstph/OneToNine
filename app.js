@@ -21,7 +21,7 @@ class Player {
 
     checkWin(){
         let sortedBuff = this.buffer.toSorted();
-        return ((sortedBuff[0]+1) == sortedBuff[1]) && ((sortedBuff[1]+1) == sortedBuff[2]);
+        return ((sortedBuff[0]+1) === sortedBuff[1]) && ((sortedBuff[1]+1) === sortedBuff[2]);
     }
 }
 

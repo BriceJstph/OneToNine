@@ -8,8 +8,8 @@ body{
 
 
 .board {
-    --board-height: 75vh;
-    --board-width: 75vw;
+    --board-height: 70vh;
+    --board-width: 70vw;
     --board-length: min(var(--board-height), var(--board-width));
 
     display: grid; /*Affiche de facon "grille" les elem enfants de board*/

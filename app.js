@@ -21,6 +21,15 @@ class Player {
 
     checkWin(){
         let sortedBuff = this.buffer.toSorted();
+
+        // Hard test teh 891 and 912 configurations
+        if ((sortedBuff[0] === 1) && (sortedBuff[1] === 8) && (sortedBuff[2] === 9)){
+            return true;
+        }
+        if ((sortedBuff[0] === 1) && (sortedBuff[1] === 2) && (sortedBuff[2] === 9)){
+            return true;
+        }
+
         return ((sortedBuff[0]+1) === sortedBuff[1]) && ((sortedBuff[1]+1) === sortedBuff[2]);
     }
 }
@@ -76,4 +85,24 @@ function handleClick(event) {
         announce.textContent = currentPlayer.name + " is playing..."
     }    
 }
+
+
+function randomizeBoard() {
+    const cells = board.querySelectorAll(".cell");
+    const numbers = Array.from({ length: cells.length }, (_, index) => index + 1);
+
+    // Fisher–Yates shuffle
+    for (let i = numbers.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
+    }
+
+    cells.forEach((cell, index) => {
+        cell.textContent = numbers[index];
+    });
+}
+
+randomizeBoard();
+
+
 board.addEventListener("click",handleClick)
